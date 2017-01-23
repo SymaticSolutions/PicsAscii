@@ -1,0 +1,28 @@
+/**
+ * By: Symatic Solutions <info@symaticsolutions.com>
+ * Date: 21/1/17
+ * Time: 2:43 PM
+ * Website: http://www.symaticsolutions.com
+ * Skype: symatic.solutions
+ */
+
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.picsascii_title{
+    display: block;
+    font-weight: bold;
+    font-family: Arial;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+a{
+    text-decoration: none;
+}
