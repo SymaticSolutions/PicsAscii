@@ -74,4 +74,5 @@ function run_picsascii() {
 	$plugin->run();
 
 }
+
 run_picsascii();
