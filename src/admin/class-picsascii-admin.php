@@ -17,15 +17,9 @@
  * Code By: Jason Page <pagetelegram@gmail.com>
  * Date: 20/1/17
  * Website: http://bondfires.cc
- 
  */
 
 /**
- * The admin-specific functionality of the plugin.
- *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the admin-specific stylesheet and JavaScript.
- *
  * @package    Picsascii
  * @subpackage Picsascii/admin
  * @author     Symatic Solutions <info@symaticsolutions.com>
@@ -71,19 +65,10 @@ class Picsascii_Admin {
 	 */
 	public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Picsascii_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Picsascii_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
+		// load minified admin css
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/picsascii-admin.min.css', array(), $this->version, 'all' );
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/picsascii-admin.css', array(), $this->version, 'all' );
+		// load font awesome from cdn
 		wp_enqueue_style( $this->plugin_name."-fa", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), $this->version, 'all' );
 
 	}
@@ -94,35 +79,35 @@ class Picsascii_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Picsascii_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Picsascii_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/picsascii-admin.js', array( 'jquery' ), $this->version, false );
-
+		// no script for now.
 	}
 
+	/**
+	 * Registers setting variables
+	 *
+	 * @since	1.0.0
+	 */
 	function register_setting(){
 		register_setting( 'picsascii-settings-group', 'picsascii_font_size_x' );
 		register_setting( 'picsascii-settings-group', 'picsascii_font_size_y' );
 		register_setting( 'picsascii-settings-group', 'picsascii_remove_image' );
 	}
 
+	/**
+	 * Add menu item to admin menu.
+	 *
+	 * @since	1.0.0
+	 */
 	function setup_menu(){
 		add_menu_page( 'PicsAscii Page', 'PicsAscii', 'manage_options', 'picsascii', array($this, 'picsascii_settings_page') );
 	}
 
+	/**
+	 * Settings page
+	 *
+	 * @since	1.0.0
+	 */
 	function picsascii_settings_page(){
 		require_once plugin_dir_path( __FILE__ ) . 'partials/picsascii-admin-display.php';
 	}
-
 }
