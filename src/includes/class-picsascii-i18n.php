@@ -47,7 +47,4 @@ class Picsascii_i18n {
 		);
 
 	}
-
-
-
 }
