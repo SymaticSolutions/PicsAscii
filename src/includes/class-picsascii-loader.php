@@ -131,5 +131,4 @@ class Picsascii_Loader {
 		}
 
 	}
-
 }
