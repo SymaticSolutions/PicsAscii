@@ -19,8 +19,6 @@
  */
 ?>
 
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->
-
 <div class="wrap">
     <h2>PicsAscii Settings</h2>
     <div class="stuffbox">
@@ -30,7 +28,6 @@
                     settings_fields( 'picsascii-settings-group' );
                     do_settings_sections( 'picsascii-settings-group' );
                 ?>
-
                 <table class="form-table">
                     <tr>
                         <td>
