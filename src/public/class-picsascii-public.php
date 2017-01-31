@@ -70,19 +70,7 @@ class Picsascii_Public {
 	 */
 	public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Picsascii_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Picsascii_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/picsascii-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/picsascii-public.min.css', array(), $this->version, 'all' );
 
 	}
 
@@ -92,24 +80,15 @@ class Picsascii_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Picsascii_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Picsascii_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/picsascii-public.js', array( 'jquery' ), $this->version, false );
-
+		// No js for now.
 	}
 
-	// check upload file and generate ascii values.
+	/**
+	 * check upload file and generate ascii values.
+	 *
+	 * @since	1.0.0
+	 * @return  array
+	 */
 	private function upload_picsascii_file(){
 		// check if form is submitted
 		if(isset($_POST['action']) && $_POST['action']==='picsascii'){
@@ -246,6 +225,14 @@ class Picsascii_Public {
 		}
 	}
 
+	/**
+	 * Shortcode callback function
+	 *
+	 * @since	1.0.0
+	 * @param 	$attributes
+	 *
+	 * @return 	string
+	 */
 	public function picsascii_shortcode_fn($attributes){
 
 		$data = $this->upload_picsascii_file();
