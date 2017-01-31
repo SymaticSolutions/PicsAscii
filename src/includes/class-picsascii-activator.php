@@ -29,9 +29,7 @@
 class Picsascii_Activator {
 
 	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
+	 * Runs while activating a plugin and adds default settings value.
 	 *
 	 * @since    1.0.0
 	 */
@@ -40,5 +38,4 @@ class Picsascii_Activator {
 		add_option('picsascii_font_size_y', '2');
 		add_option('picsascii_remove_image', '1');
 	}
-
 }
