@@ -171,16 +171,15 @@ class Picsascii_Public {
 					<div class="picsascii_image">
 					<pre style="font:' . esc_attr( get_option('picsascii_font_size_x') ) . 'px/' . esc_attr( get_option('picsascii_font_size_y') ) . 'px monospace;">';
 
-					//$data .= '<pre style="font: 2px/2px monospace;">';
 					$chars = array_reverse($chars);
 					$c_count = count($chars);
 					for($y = 0; $y <= $height - $scale - 1; $y += $scale) {
 						for($x = 0; $x <= $width - ($scale / 2) - 1; $x += ($scale / 2)) {
 							$rgb = imagecolorat($img, $x, $y);
-							$r = (($rgb >> 16) & 0xFF);
-							$g = (($rgb >> 8) & 0xFF);
-							$b = ($rgb & 0xFF);
-							$sat = ($r + $g + $b) / (255 * 3);
+							$red = (($rgb >> 16) & 0xFF);
+							$green = (($rgb >> 8) & 0xFF);
+							$blue = ($rgb & 0xFF);
+							$sat = ($red + $green + $blue) / (255 * 3);
 							$data .=  $chars[ (int)( $sat * ($c_count - 1) ) ] ;
 						}
 						$data .= '</br>';
@@ -199,10 +198,10 @@ class Picsascii_Public {
 					for($y = 0; $y <= $height - $scale - 1; $y += $scale) {
 						for($x = 0; $x <= $width - ($scale / 2) - 1; $x += ($scale / 2)) {
 							$rgb = imagecolorat($img, $x, $y);
-							$r = (($rgb >> 16) & 0xFF);
-							$g = (($rgb >> 8) & 0xFF);
-							$b = ($rgb & 0xFF);
-							$sat = ($r + $g + $b) / (255 * 3);
+							$red = (($rgb >> 16) & 0xFF);
+							$green = (($rgb >> 8) & 0xFF);
+							$blue = ($rgb & 0xFF);
+							$sat = ($red + $green + $blue) / (255 * 3);
 							$data .= $chars[ (int)( $sat * ($c_count - 1) ) ] ;
 						}
 						$data .= '</br>';
