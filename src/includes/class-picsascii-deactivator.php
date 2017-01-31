@@ -29,14 +29,11 @@
 class Picsascii_Deactivator {
 
 	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
+	 * Runs while deactivating plugin
 	 *
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-
+		// no code on deactivation for now.
 	}
-
 }
