@@ -1,7 +1,7 @@
 === PicsAscii ===
 Contributors: symatic, saurin
 Tags: Picture, Ascii, PicAscii, PicsAscii
-Donate link: http://symaticsolutions.com
+Donate link:
 Requires at least: 4.5
 Tested up to: 5.3.0
 Stable tag: 1.0.1
