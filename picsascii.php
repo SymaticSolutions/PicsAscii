@@ -3,7 +3,7 @@
 /**
  *
  * @link              http://symaticsolutions.com
- * @since             1.0.0
+ * @since             1.0.1
  * @package           Picsascii
  *
  * @wordpress-plugin
@@ -16,7 +16,7 @@
  * Auther Email:	  info@symaticsolutions.com
  * Auther Skype:	  symatic.solutions
  * License:           GPL-3.0
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       picsascii
  * Domain Path:       /languages
  *
