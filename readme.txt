@@ -34,3 +34,18 @@ Follow us on Twitter: @symaticsolution
 == Frequently Asked Questions ==
 = Why resulting image not showing in proper dimension? =
 To render ASCII image output, "&lt;pre&gt;" tag is used. There might be some CSS being applied to this tag either from your theme or plugin CSS. Please remove such CSS for ASCII images to render correctly.
+
+
+== Changelog ==
+
+= 1.0.1 =
+*Release Date - 18 December 2019*
+
+* New - Updated admin layout.
+* Fix - Default font size fix for ASCII Render.
+* Fix - Code optimisation.
+
+= 1.0.0 =
+*Release Date - 24 February 2017*
+
+* Plugin published to wordpress.org

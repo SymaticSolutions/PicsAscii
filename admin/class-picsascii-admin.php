@@ -65,21 +65,9 @@ class Picsascii_Admin {
 	 */
 	public function enqueue_styles() {
 
-		// load minified admin css
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/picsascii-admin.min.css', array(), $this->version, 'all' );
-
 		// load font awesome from cdn
 		wp_enqueue_style( $this->plugin_name."-fa", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), $this->version, 'all' );
 
-	}
-
-	/**
-	 * Register the JavaScript for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-		// no script for now.
 	}
 
 	/**

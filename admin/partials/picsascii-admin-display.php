@@ -19,54 +19,35 @@
  */
 ?>
 
+<style>
+    .picsascii_title{display:block;font-weight:bold;font-family:Arial;letter-spacing:1px;font-size:18px}
+    .bold{font-weight:bold}
+    .card{margin: 10px}
+    a{text-decoration:none}
+    span.shortcode{font-size:18px;font-weight:600;letter-spacing:3px;background-color:#efefef;display:block;padding:10px 5px;text-align:center}
+</style>
 <div class="wrap">
     <h2>PicsAscii Settings</h2>
-    <div class="stuffbox">
-        <div class="inside">
-            <form method="post" action="options.php">
-                <?php
-                    settings_fields( 'picsascii-settings-group' );
-                    do_settings_sections( 'picsascii-settings-group' );
-                ?>
-                <table class="form-table">
-                    <tr>
-                        <td>
-                            <p>Provide X and Y font size (Default is 4/2 Px).<br/>Changing font size will result in overall height and width of the ASCII image.</p>
-                        </td>
-                        <td rowspan="4" valign="top">
-                            <h3><label><span>Shortcode</span></label></h3>
-                            <p class="text-center">PicsAscii plugin offers simple shortcode to access its functionality.</p>
-                            <h2 style="letter-spacing:3px;"><center>[picsascii]</center></h2>
-                            <br>
-                            <p class="text-center">Use above shortcode anywhere in you page/post and enable a functionality
-                                to convert image to its ASCII representation.</p>
-                        </td>
-                    <tr>
-                    <tr valign="top">
-                        <td scope="row">
-                            <b>Font Size X / Y :</b> <input type="text" name="picsascii_font_size_x" value="<?php echo  esc_attr( get_option('picsascii_font_size_x') ); ?>" size="5" />Px / <input type="text" name="picsascii_font_size_y" value="<?php echo  esc_attr( get_option('picsascii_font_size_y') );?>" size="5" />Px
-                        </td>
-                    </tr>
-                    <tr valign="top">
-                        <td scope="row">
-                            <b>Remove uploaded Image? :</b> <input type="checkbox" name="picsascii_remove_image" value="1" <?php echo  (esc_attr( get_option('picsascii_remove_image') )) ? 'checked="checked"' : ''; ?>" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <?php submit_button(); ?>
-                        </td>
-                    <tr>
-                </table>
-            </form>
-        </div>
-    </div>
-
-
-    <div class="stuffbox">
-        <div class="inside">
-            <h2>Sample Image:</h2>
-            <pre style="font: <?php echo  esc_attr( get_option('picsascii_font_size_x') ); ?>px/<?php echo  esc_attr( get_option('picsascii_font_size_y') ); ?>px monospace;text-align:center">                                                                                                                                                     </br>
+    <div class="card pull-left">
+        <h2 class="title">Settings</h2>
+        <p>
+            Provide X and Y font size (Default is 5/3 Px).
+            <br/>Changing font size will result in overall height and width of the ASCII image.
+            For better rendering of output try different values.
+        <form method="post" action="options.php">
+            <?php
+            settings_fields( 'picsascii-settings-group' );
+            do_settings_sections( 'picsascii-settings-group' );
+            ?>
+            <p><b>Font Size X / Y :</b> <input type="text" name="picsascii_font_size_x" value="<?php echo  esc_attr( get_option('picsascii_font_size_x') ); ?>" size="2" />Px / <input type="text" name="picsascii_font_size_y" value="<?php echo  esc_attr( get_option('picsascii_font_size_y') );?>" size="2" />Px</p>
+            <p><b>Remove uploaded Image? :</b> <input type="checkbox" name="picsascii_remove_image" value="1" <?php echo  (esc_attr( get_option('picsascii_remove_image') )) ? 'checked="checked"' : ''; ?>" /></p>
+            <?php
+            submit_button();
+            ?>
+        </form>
+        <hr>
+        <h2 class="title">Sample Image:</h2>
+        <pre style="font: <?php echo  esc_attr( get_option('picsascii_font_size_x') ); ?>px/<?php echo  esc_attr( get_option('picsascii_font_size_y') ); ?>px monospace;text-align:center">                                                                                                                                                     </br>
                                                          :|||||||||||||||||||||||||||                                                            </br>
                                                   |||||||||||||||||||||||||||||||||||||||||||                                                    </br>
                                             ||||||||||||||||||||||||||||||||||||||||||||||||||||||                                               </br>
@@ -114,13 +95,13 @@
      :||||||0######:||||||||||||||||################X||||||||:#####:|||||||||:################0||||||||0#####||||||||||||||T######|||||||        </br>
       :|||||:######0||||||||||||||||X################||||||||0####:|||||||||||T################T|||||||#####X||||||||||||||######X||||||         </br>
        :||||||######0||||||||||||||||#################:||||||####X|||||||||||||0################:||||:0####0:|||||||||||||######0||||||:         </br>
-       \'|||||||######0|||||||||||||||:################X||||:#####||||||||||||||:0################||||T#####:||||||||||||:#######:|||||:          </br>
+       \'|||||||######0|||||||||||||||:################X||||:#####||||||||||||||:0################||||T#####:||||||||||||:#######:|||||:         </br>
         .||||||T######0:|||||||||||||||################||||0####:||||||||||||||||################T||:#####T|||||||||||||######0:|||||:           </br>
          .|||||||#######:||||||||||||||0################:|T####T|||||||||||||||||T################:|0####0||||||||||||X######0||||||:            </br>
           .|||||||#######T|||||||||||||:################X:####0|||||||||||||||||||0###############0|#####:||||||||||:#######0||||||:             </br>
             :|||||:0#######:||||||||||||:################0####:|||||||||||||||||||:#####################T||||||||||T#######T||||||:              </br>
              :||||||X#######X||||||||||||T###################|||||||||||||||||||||||###################0|||||||||:########:||||||:               </br>
-              :||||||:########||||||||||||0#################0|||||||||||||||||||||||X##################:|||||||:########T|||||||\'                </br>
+              :||||||:########||||||||||||0#################0|||||||||||||||||||||||X##################:|||||||:########T|||||||\'               </br>
                .:|||||||########T|||||||||:#################:||||||||||||||||||||||||0################|||||||:0#######0:||||||:                  </br>
                  :|||||||X########X|||||||||###############||||||||||||||||||||||||||:###############0||||||#########:||||||:.                   </br>
                    :|||||||X########0:||||||X#############0||||||||||||||||||||||||||||##############:|||T#########||||||||:                     </br>
@@ -128,7 +109,7 @@
                       ::||||||||##########0:|:###########||||||||||||||||||||||||||||||:###########0##########0:|||||||:                         </br>
                         ::|||||||:X###########X#########X|||||||||||||||||||||||||||||||:###################:||||||||:                           </br>
                            :||||||||:X##################:|||||||||||||||||||||||||||||||||###############|||||||||::                             </br>
-                             ::||||||||:T###############0X|:||||||||||||||||||||||::T00##############0||||||||||:\'                               </br>
+                             ::||||||||:T###############0X|:||||||||||||||||||||||::T00##############0||||||||||:\'                              </br>
                                 ::|||||||||:X#######################000000#######################0|||||||||||::                                  </br>
                                    ::||||||||||:|0###########################################T:|||||||||||::                                     </br>
                                       :::||||||||||||:|X##############################0T:|||||||||||||::                                         </br>
@@ -138,12 +119,22 @@
                                                                .:::::::::::::::.                                                                 </br>
                                                                                                                                                  </br>
             </pre>
-        </div>
+        </p>
+    </div>
+    <div class="card pull-left">
+        <h2 class="title">Shortcode</h2>
+        <p>
+            PicsAscii plugin offers a simple shortcode to access its functionality.
+            <br/><br/><span class="shortcode">[picsascii]</span>
+            <br/><br/>Use this shortcode anywhere in you page/post and enable a functionality
+            to convert and image to its ASCII representation.
+        </p>
+        <br/><br/>
+        <p style="text-align: center">
+            <span class="picsascii_title">PicsAscii</span>
+            Version <?php echo $this->version; ?><br><br>
+            <i class="fa fa-code fa-lg" aria-hidden="true"></i>&nbsp;with&nbsp;<i class="fa fa-heart fa-lg" aria-hidden="true" style="color:red"></i>&nbsp;By&nbsp;<a href="https://symaticsolutions.com?ref=picsascii" target="_blank" class="bold">SYMATIC SOLUTIONS</a><br/>
+            Code <i class="fa fa-code-fork fa-lg" aria-hidden="true"></i> By <a href="mailto:pagetelegram@gmail.com" target="_blank" class="bold">Jason Page</a>
+        </p>
     </div>
 </div>
-<p style="text-align: center">
-    <span class="picsascii_title">PicsAscii</span>
-    Version <?php echo $this->version; ?><br><br>
-    <i class="fa fa-code fa-lg" aria-hidden="true"></i>&nbsp;with&nbsp;<i class="fa fa-heart fa-lg" aria-hidden="true" style="color:red"></i>&nbsp;By&nbsp;<a href="http://symaticsolutions.com" target="_blank" class="bold">SYMATIC SOLUTIONS</a><br/>
-    Code <i class="fa fa-code-fork fa-lg" aria-hidden="true"></i> By <a href="mailto:pagetelegram@gmail.com" target="_blank" class="bold">Jason Page</a>
-</p>

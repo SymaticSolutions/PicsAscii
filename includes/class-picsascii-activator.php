@@ -34,8 +34,8 @@ class Picsascii_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-		add_option('picsascii_font_size_x', '4');
-		add_option('picsascii_font_size_y', '2');
+		add_option('picsascii_font_size_x', '5');
+		add_option('picsascii_font_size_y', '3');
 		add_option('picsascii_remove_image', '1');
 	}
 }
