@@ -32,5 +32,5 @@ Follow us on Twitter: @symaticsolution
     4. Manage plugin settings using the 'PicsAscii' menu option.
 
 == Frequently Asked Questions ==
-= Why resulting image not showing in proper dimention? =
-This must be the CSS issue you theme may have applied to pre html tag. Please remove any CSS with that tag for PicsAscii.
+= Why resulting image not showing in proper dimension? =
+To render ASCII image output, "&lt;pre&gt;" tag is used. There might be some CSS being applied to this tag either from your theme or plugin CSS. Please remove such CSS for ASCII images to render correctly.
