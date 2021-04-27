@@ -8,15 +8,15 @@
  *
  * @wordpress-plugin
  * Plugin Name:       PicsAscii
- * Plugin URI:        http://lab.symaticsolutions.com/wordpress/plugins/picsascii
+ * Plugin URI:        https://github.com/SymaticSolutions/PicsAscii
  * Description:       This plugin converts images to their ASCII representation. Useful for quick conversion for ASCII profile images.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Symatic Solutions
  * Author URI:        http://symaticsolutions.com
  * Auther Email:	  info@symaticsolutions.com
  * Auther Skype:	  symatic.solutions
  * License:           GPL-3.0
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       picsascii
  * Domain Path:       /languages
  *
