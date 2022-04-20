@@ -1,17 +1,10 @@
-/**
- * By: Symatic Solutions <info@symaticsolutions.com>
- * Date: 21/1/17
- * Time: 2:43 PM
- * Website: http://www.symaticsolutions.com
- * Skype: symatic.solutions
- */
-pre{ border: none !important }
-.picsascii_form{ background-color: #f0f0f0; box-shadow: 0 0 3px 3px #e0e0e0; padding: 2em; text-align: center; font-family: Arial }
-.picsascii_form p{ padding: 0.5em; text-align: center; font-weight: 100; border-bottom: 1px dotted }
-.picsascii_form p strong{ font-weight: 900; font-size: 1.5em }
-.picsascii_form input{ display: block; text-align: center; margin: 0 auto 15px auto; padding: 15px }
-.picsascii_form input[type=file]{ background-color: #fff; width: 100%; padding: 10px }
-.picsascii_notice, .picsascii_sucess{ padding: 10px 20px; margin: 20px 0; font-family: Arial; font-size: 14px; text-align: center; border: 1px solid !important; border-radius: 3px }
-.picsascii_notice{ color: red; background-color: #ffdddd }
-.picsascii_sucess{ color: green; background-color: #ddffdd }
-.picsascii_image{ text-align: center }
+pre{border:none!important}
+.picsascii_form{background-color:#f0f0f0;box-shadow:0 0 3px 3px #e0e0e0;padding:2em;text-align:center;font-family:Arial}
+.picsascii_form p{padding:0.5em;text-align:center;font-weight:100;border-bottom:1px dotted}
+.picsascii_form p strong{font-weight:900;font-size:1.5em}
+.picsascii_form input{display:block;text-align:center;margin:0 auto 15px auto;padding:15px}
+.picsascii_form input[type=file]{background-color:#fff;width:100%;padding:10px}
+.picsascii_notice, .picsascii_sucess{padding:10px 20px;margin:20px 0;font-family:Arial;font-size:14px;text-align:center;border:1px solid !important;border-radius:3px}
+.picsascii_notice{color:red;background-color:#ffdddd}
+.picsascii_sucess{color:green;background-color:#ddffdd}
+.picsascii_image{text-align:center}

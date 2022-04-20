@@ -32,34 +32,13 @@
 class Picsascii_Public {
 
 	/**
-	 * The ID of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
-	 */
-	private $plugin_name;
-
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
-	 */
-	private $version;
-
-	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
 	 * @param      string    $plugin_name       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
-
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+	public function __construct( ) {
 
 	}
 
@@ -70,7 +49,7 @@ class Picsascii_Public {
 	 */
 	public function enqueue_styles() {
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/picsascii-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( PICSASCII_NAME, PICSASCII_DIR_PATH . 'css/picsascii-public.css', array(), PICSASCII_VERSION, 'all' );
 
 	}
 
@@ -89,7 +68,7 @@ class Picsascii_Public {
 				// check file size
 				if ($_FILES["picsascii_image"]["size"] > 5000000) {
 					return array(
-						'message'=> '<p class="message">Sorry, your file is too large.</p>',
+						'message'=> '<p class="message">' . __('Sorry, your file is too large','picsascii') . '</p>',
 						'data' => ''
 					);
 				}
@@ -98,7 +77,7 @@ class Picsascii_Public {
 				$check = getimagesize($_FILES["picsascii_image"]["tmp_name"]);
 				if($check === false) {
 					return array(
-						'message'=> '<p class="message">Please upload an image.</p>',
+						'message'=> '<p class="message">' . __('Please upload an image.', 'picsascii') . '</p>',
 						'data' => ''
 					);
 				}
@@ -107,7 +86,7 @@ class Picsascii_Public {
 				$imageFileType = pathinfo(basename($_FILES["picsascii_image"]["name"]), PATHINFO_EXTENSION);
 				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
 					return array(
-						'message'=> '<p class="message">Sorry, only JPG, JPEG, PNG & GIF files are allowed.</p>',
+						'message'=> '<p class="message">' . __('Sorry, only JPG, JPEG, PNG & GIF files are allowed.', 'picsascii') . '</p>',
 						'data' => ''
 					);
 				}
@@ -130,14 +109,10 @@ class Picsascii_Public {
 					$img = imagecreatefromstring(file_get_contents($movefile['file']));
 					list($width, $height) = getimagesize($movefile['file']);
 					$scale = 4;
-					$chars = array(
-						'#', '0', 'X', 'T',
-						'|', ':', '.', '\'',
-						' ',
-					);
+					$chars = array('#', '0', 'X', 'T', '|', ':', '.', '\'', ' ');
 					$chars = array_reverse($chars);
 					$c_count = count($chars);
-					$data = '<p class="picsascii_sucess">Click "Highlight All" and copy to clipboard and paste into any HTML field, TEXT page or post.</p>
+					$data = '<p class="picsascii_sucess">' . __('Click "Highlight All" and copy to clipboard and paste into any HTML field, TEXT page or post.', 'picsascii') . '</p>
 					<div class="picsascii_image">
 					<pre style="font:' . esc_attr( get_option('picsascii_font_size_x') ) . 'px/' . esc_attr( get_option('picsascii_font_size_y') ) . 'px monospace;">';
 
@@ -158,7 +133,7 @@ class Picsascii_Public {
 
 					$data .= '</div><form name="aspinc"><pre><div align="center">
 					<input onclick="copyit(\'aspinc.select1\')" type="button" value="Highlight All" name="cpy">
-					<p><textarea class="codebox-sm" name="select1">';
+					<p><textarea rows="10" class="codebox-sm" name="select1">';
 
 					$data .= '<pre style="font: ' . esc_attr( get_option('picsascii_font_size_x') ) . 'px/' . esc_attr( get_option('picsascii_font_size_y') ) . 'px monospace;">';
 
@@ -180,17 +155,15 @@ class Picsascii_Public {
 
 					$data .= '</pre>';
 					$data .= '</textarea></p></pre></div></form>';
-					$data .= '<SCRIPT LANGUAGE="JavaScript">
-								<!-- Begin
+					$data .= '<script>//<!-- start
 								function copyit(theField) {
-								var tempval=eval("document."+theField)
-								tempval.focus()
-								tempval.select()
-								therange=tempval.createTextRange()
-								therange.execCommand("Copy")
-								}
-								//  End -->
-								</script>';
+								    var tempval=eval("document."+theField);
+								    tempval.focus();
+								    tempval.select();
+								    therange=tempval.createTextRange();
+								    therange.execCommand("Copy");
+								} //End -->
+                            </script>';
 
 					// remove image is setting says so
 					if(esc_attr( get_option('picsascii_remove_image') )){
@@ -213,7 +186,12 @@ class Picsascii_Public {
 					);
 				}
 			}
-		}
+		}else{
+            return array(
+                'message'=> '',
+                'data' => ''
+            );
+        }
 	}
 
 	/**
@@ -230,10 +208,10 @@ class Picsascii_Public {
 
 		$form = '<form class="picsascii_form" action="" enctype="multipart/form-data" method="post">' .
 					$data['message'] .
-					'<p><strong>PicsAscii</strong><br/>Convert Image to ASCII representation.</p>
+					'<p><strong>' . __('PicsAscii', 'picsascii') . '</strong><br/>' . __('Convert Image to ASCII image.','picsascii') . '</p>
     				<input type="file" name="picsascii_image" id="picsascii_image">
     				<input type="hidden" name="action" value="picsascii">
-    				<input type="submit" value="Convert to ASCII" name="submit">
+    				<input type="submit" value="' . __('Convert to ASCII', 'picsascii') . '" name="submit">
 				</form>';
 
 		return $form . $data['data'];

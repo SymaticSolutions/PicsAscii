@@ -27,34 +27,11 @@
 class Picsascii_Admin {
 
 	/**
-	 * The ID of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
-	 */
-	private $plugin_name;
-
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
-	 */
-	private $version;
-
-	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of this plugin.
-	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
-
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+	public function __construct() {
 
 	}
 
@@ -64,10 +41,8 @@ class Picsascii_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-
 		// load font awesome from cdn
-		wp_enqueue_style( $this->plugin_name."-fa", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), $this->version, 'all' );
-
+		wp_enqueue_style( PICSASCII_NAME . "-fa", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), PICSASCII_VERSION, 'all' );
 	}
 
 	/**
@@ -96,6 +71,6 @@ class Picsascii_Admin {
 	 * @since	1.0.0
 	 */
 	function picsascii_settings_page(){
-		require_once plugin_dir_path( __FILE__ ) . 'partials/picsascii-admin-display.php';
+		require_once PICSASCII_DIR_PATH . 'admin/partials/picsascii-admin-display.php';
 	}
 }

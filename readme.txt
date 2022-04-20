@@ -1,21 +1,21 @@
 === PicsAscii ===
 Contributors: symatic, saurin
-Tags: Picture, Ascii, PicAscii, PicsAscii
+Tags: Picture, Ascii, PicAscii, PicsAscii, ASCII Art Text Picture, Picture Text, text image
 Donate link:
 Requires at least: 4.5
-Tested up to: 5.3.0
-Stable tag: 1.0.1
+Tested up to: 5.9.3
+Stable tag: 1.0.2
 License: GPL-3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 
-A Simple WordPress Plugin to Convert Image to ASCII Representation.
+A Simple WordPress Plugin to Convert Image to ASCII image.
 
 == Description ==
-This plugin converts images to their ASCII representation. This plugin is useful to convert images for websites those do not support adding of image as part of user content. You can always convert image and paste the result in user content area to show image using ASCII codes.
+This plugin converts images to ASCII image.
+A fun way to show images.
+Ascii images are also useful to add images in text form along with comments or reviews where image attachment is not available.
 
-Find out more at https://github.com/SymaticSolutions/PicsAscii
-
-Follow us on Twitter: @symaticsolution
+Find out more at [https://github.com/SymaticSolutions/PicsAscii](https://github.com/SymaticSolutions/PicsAscii)
 
 == Installation ==
 **The easy way:**
@@ -37,6 +37,13 @@ To render ASCII image output, "&lt;pre&gt;" tag is used. There might be some CSS
 
 
 == Changelog ==
+
+= 1.0.2 =
+*Release Date - 20 April 2022*
+
+* Admin layout update.
+* New - Translation strings used to support multi-language.
+* Code optimisation.
 
 = 1.0.1 =
 *Release Date - 18 December 2019*

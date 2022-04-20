@@ -32,7 +32,6 @@
  */
 class Picsascii_i18n {
 
-
 	/**
 	 * Load the plugin text domain for translation.
 	 *
@@ -43,7 +42,7 @@ class Picsascii_i18n {
 		load_plugin_textdomain(
 			'picsascii',
 			false,
-			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+            PICSASCII_DIR_PATH . 'languages/'
 		);
 
 	}

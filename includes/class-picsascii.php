@@ -45,24 +45,6 @@ class Picsascii {
 	protected $loader;
 
 	/**
-	 * The unique identifier of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
-	 */
-	protected $plugin_name;
-
-	/**
-	 * The current version of the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $version    The current version of the plugin.
-	 */
-	protected $version;
-
-	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -72,15 +54,10 @@ class Picsascii {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-
-		$this->plugin_name = 'picsascii';
-		$this->version = '1.0.1';
-
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
 	}
 
 	/**
@@ -105,24 +82,24 @@ class Picsascii {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-picsascii-loader.php';
+		require_once PICSASCII_DIR_PATH . 'includes/class-picsascii-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-picsascii-i18n.php';
+		require_once PICSASCII_DIR_PATH . 'includes/class-picsascii-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-picsascii-admin.php';
+		require_once PICSASCII_DIR_PATH . 'admin/class-picsascii-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-picsascii-public.php';
+		require_once PICSASCII_DIR_PATH . 'public/class-picsascii-public.php';
 
 		$this->loader = new Picsascii_Loader();
 
@@ -154,7 +131,7 @@ class Picsascii {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Picsascii_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Picsascii_Admin();
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 
@@ -171,7 +148,7 @@ class Picsascii {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Picsascii_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Picsascii_Public();
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 
@@ -188,17 +165,6 @@ class Picsascii {
 	}
 
 	/**
-	 * The name of the plugin used to uniquely identify it within the context of
-	 * WordPress and to define internationalization functionality.
-	 *
-	 * @since     1.0.0
-	 * @return    string    The name of the plugin.
-	 */
-	public function get_plugin_name() {
-		return $this->plugin_name;
-	}
-
-	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
@@ -206,15 +172,5 @@ class Picsascii {
 	 */
 	public function get_loader() {
 		return $this->loader;
-	}
-
-	/**
-	 * Retrieve the version number of the plugin.
-	 *
-	 * @since     1.0.0
-	 * @return    string    The version number of the plugin.
-	 */
-	public function get_version() {
-		return $this->version;
 	}
 }
